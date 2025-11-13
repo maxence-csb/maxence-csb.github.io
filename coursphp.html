@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cours PHP - Maxence Geranton</title>
+  <link rel="stylesheet" href="coursphp.css">
+</head>
+<body>
+  <header>
+    <h1>Maxence Geranton</h1>
+    <nav>
+      <a href="index.html">CV</a>
+      <a href="projets.html">Projets</a>
+      <a href="coursphp.html" class="active">Cours PHP</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-hero">
+      <h2>Cours PHP pour Débutants</h2>
+      <p>Apprenez les bases du PHP pas à pas</p>
+    </section>
+
+    <section class="cards-container">
+
+      <div class="card">
+        <h3>1. Types de données, variables et portées</h3>
+        <ul>
+          <li><b>string</b> : texte, ex. "Bonjour"</li>
+          <li><b>int</b> : nombre entier, ex. 25</li>
+          <li><b>float</b> : nombre à virgule, ex. 3.14</li>
+          <li><b>bool</b> : vrai/faux, ex. true ou false</li>
+          <li><b>array</b> : tableau, ex. [1,2,3]</li>
+          <li><b>null</b> : valeur vide</li>
+        </ul>
+        <pre><code>$nom = "Alice";
+$age = 25;
+$estEtudiant = true;</code></pre>
+      </div>
+
+      <div class="card">
+        <h3>2. Structures alternatives</h3>
+        <pre><code>$age = 18;
+if ($age >= 18) { echo "Majeur"; }
+elseif ($age >= 13) { echo "Adolescent"; }
+else { echo "Enfant"; }
+
+$couleur = "rouge";
+switch ($couleur) {
+    case "rouge": echo "Stop !"; break;
+    case "vert": echo "Go !"; break;
+    default: echo "Inconnu";
+}</code></pre>
+      </div>
+
+      <div class="card">
+        <h3>3. Boucles</h3>
+        <pre><code>for ($i=1; $i<=5; $i++) { echo "Compteur $i<br>"; }
+$i=1; while ($i<=3) { echo "Itération $i<br>"; $i++; }
+$fruits=["pomme","banane","orange"];
+foreach($fruits as $fruit){echo $fruit."<br>";}</code></pre>
+      </div>
+
+      <div class="card">
+        <h3>4. Fonctions</h3>
+        <pre><code>function direBonjour($nom){ return "Bonjour, $nom !"; }
+echo direBonjour("Alice");
+
+function afficherMessage($msg){ echo $msg; }
+afficherMessage("Salut !");
+
+function saluer($nom="Inconnu"){ echo "Bonjour, $nom !"; }
+saluer();</code></pre>
+      </div>
+
+      <div class="card">
+        <h3>5. Tableaux</h3>
+        <pre><code>$fruits=["pomme","banane","orange"];
+echo $fruits[0];
+
+$personne=["nom"=>"Alice","age"=>25];
+echo $personne["nom"];
+
+foreach($personne as $cle=>$valeur){ echo "$cle : $valeur<br>"; }</code></pre>
+      </div>
+
+      <div class="card">
+        <h3>6. Include / Require</h3>
+        <pre><code>include "header.php";
+require_once "config.php";</code></pre>
+      </div>
+
+      <div class="card">
+        <h3>7. Transmettre des données</h3>
+        <pre><code>// GET
+&lt;a href="page2.php?nom=Alice&amp;age=25"&gt;Envoyer&lt;/a&gt;
+$nom=$_GET['nom']; $age=$_GET['age'];
+
+// POST
+&lt;form method="post" action="traitement.php"&gt;
+&lt;input type="text" name="nom"&gt;
+&lt;input type="submit"&gt;
+&lt;/form&gt;
+$nom=$_POST['nom'];
+
+// SESSION
+session_start(); $_SESSION['nom']="Alice";</code></pre>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    © 2025 • Maxence Geranton
+  </footer>
+</body>
+</html>
