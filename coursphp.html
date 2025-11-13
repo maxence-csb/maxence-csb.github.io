@@ -19,93 +19,126 @@
   <main>
     <section class="hero-hero">
       <h2>Cours PHP pour Débutants</h2>
-      <p>Apprenez les bases du PHP pas à pas</p>
+      <p>Apprenez les bases du PHP pas à pas, avec des exemples pratiques.</p>
     </section>
 
     <section class="cards-container">
 
       <div class="card">
         <h3>1. Types de données, variables et portées</h3>
+        <p>En PHP, les variables permettent de stocker des données. Chaque variable a un type : string, int, float, bool, array ou null.</p>
         <ul>
-          <li><b>string</b> : texte, ex. "Bonjour"</li>
-          <li><b>int</b> : nombre entier, ex. 25</li>
-          <li><b>float</b> : nombre à virgule, ex. 3.14</li>
-          <li><b>bool</b> : vrai/faux, ex. true ou false</li>
-          <li><b>array</b> : tableau, ex. [1,2,3]</li>
-          <li><b>null</b> : valeur vide</li>
+          <li><b>string</b> : chaîne de caractères. Exemple : "Bonjour"</li>
+          <li><b>int</b> : entier. Exemple : 25</li>
+          <li><b>float</b> : nombre à virgule. Exemple : 3.14</li>
+          <li><b>bool</b> : booléen vrai/faux. Exemple : true ou false</li>
+          <li><b>array</b> : tableau contenant plusieurs valeurs. Exemple : [1,2,3]</li>
+          <li><b>null</b> : variable vide ou non définie</li>
         </ul>
-        <pre><code>$nom = "Alice";
-$age = 25;
-$estEtudiant = true;</code></pre>
+        <p><b>Exemple :</b></p>
+        <pre><code>$nom = "Alice";  // string
+$age = 25;             // int
+$estEtudiant = true;   // bool</code></pre>
+        <p><b>Note :</b> Les variables commencent toujours par <code>$</code> et sont sensibles à la casse.</p>
       </div>
 
       <div class="card">
-        <h3>2. Structures alternatives</h3>
+        <h3>2. Structures conditionnelles</h3>
+        <p>Les conditions permettent de prendre des décisions dans le code.</p>
+        <p><b>if / elseif / else :</b></p>
         <pre><code>$age = 18;
-if ($age >= 18) { echo "Majeur"; }
-elseif ($age >= 13) { echo "Adolescent"; }
-else { echo "Enfant"; }
-
-$couleur = "rouge";
+if ($age >= 18) {
+    echo "Majeur";
+} elseif ($age >= 13) {
+    echo "Adolescent";
+} else {
+    echo "Enfant";
+}</code></pre>
+        <p><b>switch :</b></p>
+        <pre><code>$couleur = "rouge";
 switch ($couleur) {
     case "rouge": echo "Stop !"; break;
     case "vert": echo "Go !"; break;
     default: echo "Inconnu";
 }</code></pre>
+        <p><b>Astuce :</b> Toujours inclure <code>break;</code> dans un <code>switch</code> pour éviter l’exécution des cas suivants.</p>
       </div>
 
       <div class="card">
         <h3>3. Boucles</h3>
-        <pre><code>for ($i=1; $i<=5; $i++) { echo "Compteur $i<br>"; }
-$i=1; while ($i<=3) { echo "Itération $i<br>"; $i++; }
-$fruits=["pomme","banane","orange"];
-foreach($fruits as $fruit){echo $fruit."<br>";}</code></pre>
+        <p>Les boucles permettent de répéter du code plusieurs fois.</p>
+        <p><b>for :</b> quand on connaît le nombre d’itérations</p>
+        <pre><code>for ($i=1; $i<=5; $i++) {
+    echo "Compteur $i<br>";
+}</code></pre>
+        <p><b>while :</b> répète tant qu’une condition est vraie</p>
+        <pre><code>$i=1;
+while ($i<=3) {
+    echo "Itération $i<br>";
+    $i++;
+}</code></pre>
+        <p><b>foreach :</b> pour parcourir un tableau</p>
+        <pre><code>$fruits=["pomme","banane","orange"];
+foreach($fruits as $fruit){
+    echo $fruit."<br>";
+}</code></pre>
       </div>
 
       <div class="card">
         <h3>4. Fonctions</h3>
-        <pre><code>function direBonjour($nom){ return "Bonjour, $nom !"; }
-echo direBonjour("Alice");
-
-function afficherMessage($msg){ echo $msg; }
-afficherMessage("Salut !");
-
-function saluer($nom="Inconnu"){ echo "Bonjour, $nom !"; }
-saluer();</code></pre>
+        <p>Les fonctions permettent de réutiliser du code et de structurer votre programme.</p>
+        <pre><code>function direBonjour($nom){
+    return "Bonjour, $nom !";
+}
+echo direBonjour("Alice");</code></pre>
+        <pre><code>function afficherMessage($msg){
+    echo $msg;
+}
+afficherMessage("Salut !");</code></pre>
+        <pre><code>function saluer($nom="Inconnu"){
+    echo "Bonjour, $nom !";
+}
+saluer(); // Affiche "Bonjour, Inconnu !"</code></pre>
+        <p><b>Astuce :</b> Les paramètres peuvent avoir des valeurs par défaut.</p>
       </div>
 
       <div class="card">
         <h3>5. Tableaux</h3>
+        <p>Les tableaux stockent plusieurs valeurs dans une seule variable.</p>
         <pre><code>$fruits=["pomme","banane","orange"];
-echo $fruits[0];
-
-$personne=["nom"=>"Alice","age"=>25];
-echo $personne["nom"];
-
-foreach($personne as $cle=>$valeur){ echo "$cle : $valeur<br>"; }</code></pre>
+echo $fruits[0]; // pomme</code></pre>
+        <pre><code>$personne=["nom"=>"Alice","age"=>25];
+echo $personne["nom"]; // Alice</code></pre>
+        <pre><code>foreach($personne as $cle=>$valeur){
+    echo "$cle : $valeur<br>";
+}</code></pre>
+        <p><b>Astuce :</b> Les tableaux associatifs utilisent des clés pour identifier les valeurs.</p>
       </div>
 
       <div class="card">
         <h3>6. Include / Require</h3>
-        <pre><code>include "header.php";
-require_once "config.php";</code></pre>
+        <p>Ces instructions permettent d’inclure un fichier dans un autre pour réutiliser du code.</p>
+        <pre><code>include "header.php";      // inclut le fichier, continue même si erreur
+require_once "config.php"; // inclut le fichier une seule fois, stop si erreur</code></pre>
       </div>
 
       <div class="card">
         <h3>7. Transmettre des données</h3>
-        <pre><code>// GET
-&lt;a href="page2.php?nom=Alice&amp;age=25"&gt;Envoyer&lt;/a&gt;
-$nom=$_GET['nom']; $age=$_GET['age'];
-
-// POST
-&lt;form method="post" action="traitement.php"&gt;
+        <p>Il existe plusieurs façons de transmettre des informations :</p>
+        <p><b>GET :</b> via l’URL</p>
+        <pre><code>&lt;a href="page2.php?nom=Alice&amp;age=25"&gt;Envoyer&lt;/a&gt;
+$nom = $_GET['nom'];
+$age = $_GET['age'];</code></pre>
+        <p><b>POST :</b> via un formulaire</p>
+        <pre><code>&lt;form method="post" action="traitement.php"&gt;
 &lt;input type="text" name="nom"&gt;
 &lt;input type="submit"&gt;
 &lt;/form&gt;
-$nom=$_POST['nom'];
-
-// SESSION
-session_start(); $_SESSION['nom']="Alice";</code></pre>
+$nom = $_POST['nom'];</code></pre>
+        <p><b>SESSION :</b> conserver des informations entre plusieurs pages</p>
+        <pre><code>session_start();
+$_SESSION['nom'] = "Alice";</code></pre>
+        <p><b>Astuce :</b> Toujours faire <code>session_start()</code> au début de la page avant de manipuler les sessions.</p>
       </div>
 
     </section>
